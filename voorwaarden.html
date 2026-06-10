@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ background:#F8F4EE; font-family:'Jost',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
+    ::selection{ background:#C8AEA1; color:#F8F4EE; }
+    @keyframes riseUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:translateY(0); } }
+  </style>
+</helmet>
+
+<div style="background:#F8F4EE; color:#6E5B4B; overflow-x:hidden; min-height:100vh;">
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header style="display:flex; align-items:center; justify-content:space-between; padding:34px clamp(28px,5vw,64px); border-bottom:1px solid rgba(110,91,75,0.14);">
+    <a href="index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#9C8975; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; transition:color .3s ease;" style-hover="color:#6E5B4B;">&larr;&nbsp;&nbsp;HOME</a>
+    <a href="index.html" style="text-decoration:none; text-align:center;">
+      <div style="font-size:20px; font-weight:200; letter-spacing:0.42em; text-indent:0.42em; color:#6E5B4B;">MARL&Eacute;</div>
+    </a>
+    <a href="galerij.html" style="text-decoration:none; color:#9C8975; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; min-width:60px; text-align:right; transition:color .3s ease;" style-hover="color:#6E5B4B;">GALERIJ</a>
+  </header>
+
+  <!-- ===================== TITEL + SUB-NAV ===================== -->
+  <section style="text-align:center; padding:clamp(64px,10vh,116px) 28px clamp(40px,6vh,64px); animation:riseUp 1s ease both;">
+    <div style="font-size:11px; font-weight:400; letter-spacing:0.5em; color:#A8957F; text-indent:0.5em; margin-bottom:22px;">GOED OM TE WETEN</div>
+    <h1 style="font-size:clamp(34px,5.5vw,64px); font-weight:200; letter-spacing:0.14em; color:#6E5B4B; text-indent:0.14em; line-height:1.05; text-shadow:0 1px 0 rgba(255,255,255,0.7);">VOORWAARDEN<br>&amp;&nbsp;PRIVACY</h1>
+    <div style="display:flex; gap:30px; justify-content:center; margin-top:36px; flex-wrap:wrap;">
+      <a href="#voorwaarden" style="text-decoration:none; color:#8A7765; font-size:11px; font-weight:400; letter-spacing:0.24em; text-indent:0.24em; border-bottom:1px solid rgba(110,91,75,0.3); padding-bottom:6px; transition:color .3s ease;" style-hover="color:#6E5B4B;">ALGEMENE VOORWAARDEN</a>
+      <a href="#privacy" style="text-decoration:none; color:#8A7765; font-size:11px; font-weight:400; letter-spacing:0.24em; text-indent:0.24em; border-bottom:1px solid rgba(110,91,75,0.3); padding-bottom:6px; transition:color .3s ease;" style-hover="color:#6E5B4B;">PRIVACYVERKLARING</a>
+    </div>
+  </section>
+
+  <!-- ===================== ALGEMENE VOORWAARDEN ===================== -->
+  <section id="voorwaarden" style="max-width:760px; margin:0 auto; padding:clamp(40px,6vh,72px) clamp(28px,5vw,40px) 0; scroll-margin-top:40px;">
+    <h2 data-reveal style="font-size:clamp(24px,3.4vw,34px); font-weight:200; letter-spacing:0.14em; text-indent:0.14em; color:#6E5B4B; padding-bottom:24px; margin-bottom:8px; border-bottom:1px solid rgba(110,91,75,0.18);">ALGEMENE&nbsp;VOORWAARDEN</h2>
+
+    <sc-for list="{{ voorwaarden }}" as="blok" hint-placeholder-count="4">
+      <div data-reveal style="padding-top:clamp(34px,5vh,52px);">
+        <h3 style="font-size:13px; font-weight:500; letter-spacing:0.28em; text-indent:0.28em; text-transform:uppercase; color:#9C8167; margin-bottom:18px;">{{ blok.titel }}</h3>
+        <sc-for list="{{ blok.alineas }}" as="tekst" hint-placeholder-count="2">
+          <p style="font-size:16px; font-weight:300; line-height:1.95; letter-spacing:0.012em; color:#7C6A58; margin-bottom:16px;">{{ tekst }}</p>
+        </sc-for>
+        <sc-if value="{{ blok.lijst }}" hint-placeholder-val="{{ true }}">
+          <ul style="list-style:none; margin-top:4px;">
+            <sc-for list="{{ blok.lijst }}" as="punt" hint-placeholder-count="4">
+              <li style="position:relative; padding-left:26px; font-size:16px; font-weight:300; line-height:1.7; letter-spacing:0.012em; color:#7C6A58; margin-bottom:13px;">
+                <span style="position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:#C2A091;"></span>{{ punt }}
+              </li>
+            </sc-for>
+          </ul>
+        </sc-if>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- ===================== PRIVACYVERKLARING ===================== -->
+  <section id="privacy" style="max-width:760px; margin:0 auto; padding:clamp(64px,10vh,110px) clamp(28px,5vw,40px) 0; scroll-margin-top:40px;">
+    <h2 data-reveal style="font-size:clamp(24px,3.4vw,34px); font-weight:200; letter-spacing:0.14em; text-indent:0.14em; color:#6E5B4B; padding-bottom:24px; margin-bottom:8px; border-bottom:1px solid rgba(110,91,75,0.18);">PRIVACYVERKLARING</h2>
+    <p data-reveal style="font-size:16px; font-weight:300; line-height:1.95; letter-spacing:0.012em; color:#7C6A58; padding-top:clamp(28px,4vh,40px);">Marl&eacute; Nail Studio, gevestigd aan Helsdingse Achterweg 12, 4133 NC Vianen, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.</p>
+
+    <sc-for list="{{ privacy }}" as="blok" hint-placeholder-count="6">
+      <div data-reveal style="padding-top:clamp(34px,5vh,52px);">
+        <h3 style="font-size:13px; font-weight:500; letter-spacing:0.28em; text-indent:0.28em; text-transform:uppercase; color:#9C8167; margin-bottom:18px;">{{ blok.titel }}</h3>
+        <sc-for list="{{ blok.alineas }}" as="tekst" hint-placeholder-count="2">
+          <p style="font-size:16px; font-weight:300; line-height:1.95; letter-spacing:0.012em; color:#7C6A58; margin-bottom:16px;">{{ tekst }}</p>
+        </sc-for>
+        <sc-if value="{{ blok.lijst }}" hint-placeholder-val="{{ true }}">
+          <ul style="list-style:none; margin-top:4px;">
+            <sc-for list="{{ blok.lijst }}" as="punt" hint-placeholder-count="3">
+              <li style="position:relative; padding-left:26px; font-size:16px; font-weight:300; line-height:1.7; letter-spacing:0.012em; color:#7C6A58; margin-bottom:13px;">
+                <span style="position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:#C2A091;"></span>{{ punt }}
+              </li>
+            </sc-for>
+          </ul>
+        </sc-if>
+      </div>
+    </sc-for>
+
+    <p data-reveal style="font-size:14px; font-weight:300; line-height:1.8; letter-spacing:0.04em; color:#A8957F; padding-top:clamp(40px,6vh,64px);">Vragen over je privacy? Mail naar <a href="mailto:nailstudio.marle@gmail.com" style="color:#9C8167; text-decoration:none; border-bottom:1px solid rgba(156,129,103,0.4);">nailstudio.marle@gmail.com</a>.</p>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#6E5B4B; color:#EFE7DD; padding:clamp(64px,9vh,100px) 0 44px; margin-top:clamp(72px,11vh,140px);">
+    <div style="max-width:1120px; margin:0 auto; padding:0 40px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:36px; text-align:center;">
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">INSTAGRAM</div>
+          <a href="{{ instaLink }}" style="text-decoration:none; color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.08em;">{{ instaHandle }}</a>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">E-MAIL</div>
+          <a href="mailto:{{ email }}" style="text-decoration:none; color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.04em;">{{ email }}</a>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">TELEFOON</div>
+          <a href="{{ telLink }}" style="text-decoration:none; color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.08em;">{{ telefoon }}</a>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">ADRES</div>
+          <div style="color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.08em; line-height:1.7; white-space:pre-line;">{{ adres }}</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:clamp(44px,6vh,72px);">
+        <div style="font-size:20px; font-weight:200; letter-spacing:0.42em; text-indent:0.42em; color:#F4EDE4;">MARL&Eacute;</div>
+        <div style="font-size:10px; font-weight:300; letter-spacing:0.4em; text-indent:0.4em; color:#B5A491; margin-top:11px;">&copy; 2026 &nbsp;&middot;&nbsp; NAIL STUDIO</div>
+        <div style="font-size:10px; font-weight:300; letter-spacing:0.3em; text-indent:0.3em; color:#9C8973; margin-top:9px;">KVK 00000000 &nbsp;&middot;&nbsp; BTW NL0000.00.000.B00</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const run = () => {
+      const els = Array.from(document.querySelectorAll('[data-reveal]'));
+      if (!els.length) return;
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = 'opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1)';
+        el.style.willChange = 'opacity, transform';
+      });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+      els.forEach(el => io.observe(el));
+    };
+    requestAnimationFrame(() => requestAnimationFrame(run));
+  }
+  renderVals() {
+    const p = this.props;
+    return {
+      instaHandle: '@marlenailstudio',
+      instaLink: 'https://instagram.com/marlenailstudio',
+      email: 'nailstudio.marle@gmail.com',
+      telefoon: '06 18 25 99 18',
+      telLink: 'tel:+31618259918',
+      adres: 'Helsdingse Achterweg 12\n4133 NC  Vianen',
+      voorwaarden: [
+        { titel: 'Afspraken', alineas: ['Om je afspraak te bevestigen vragen wij een niet-restitueerbare aanbetaling van 20% van het totaalbedrag. Deze wordt verrekend met de behandeling. Mocht je onverhoopt niet meer kunnen en annuleer je op tijd, dan wordt dit bedrag verrekend met de volgende behandeling. Gelieve op tijd aanwezig te zijn voor je afspraak.'] },
+        { titel: 'Annuleringen', alineas: ['Verplaatsen of annuleren van afspraken dient minimaal 24 uur van tevoren doorgegeven te worden.', 'Bij annulering of verplaatsing binnen 24 uur wordt 50% van de geboekte behandeling in rekening gebracht.'] },
+        { titel: 'Te laat / no shows', alineas: ['Indien je meer dan 15 minuten te laat bent, kan de afspraak worden geannuleerd en vervalt de aanbetaling.', 'Bij een no show wordt het volledige bedrag van de geboekte behandeling in rekening gebracht.'] },
+        { titel: 'Overig', lijst: [
+          'Geen extra gasten meenemen naar de afspraak.',
+          'Reparaties of klachten dienen binnen 3 dagen gemeld te worden.',
+          'Wij werken niet over producten van andere salons heen.',
+          'Gelnagels/acryl van een andere salon verwijderen dient vooraf aangegeven te worden.',
+          'Prijzen kunnen variëren afhankelijk van lengte, design en extra nail art.',
+        ] },
+      ],
+      privacy: [
+        { titel: 'Contactgegevens', lijst: ['Adres: Helsdingse Achterweg 12, 4133 NC Vianen', 'E-mailadres: nailstudio.marle@gmail.com'] },
+        { titel: 'Persoonsgegevens die wij verwerken', alineas: ['Marlé Nail Studio verwerkt je persoonsgegevens doordat je gebruikmaakt van onze diensten en/of omdat je deze gegevens zelf aan ons verstrekt. Hieronder vind je een overzicht van de persoonsgegevens die wij verwerken:'], lijst: ['Voor- en achternaam', 'Telefoonnummer', 'E-mailadres', 'Overige persoonsgegevens die je actief verstrekt (bijvoorbeeld tijdens het maken van een afspraak of in correspondentie)'] },
+        { titel: 'Doel en grondslag', alineas: ['Marlé Nail Studio verwerkt jouw persoonsgegevens voor de volgende doelen:'], lijst: ['Het plannen en beheren van je afspraken.', 'Om je te kunnen bellen of e-mailen indien dit nodig is om onze dienstverlening uit te voeren (bijvoorbeeld bij het verzetten van een afspraak).', 'Het afhandelen van jouw betaling.'] },
+        { titel: 'Hoe lang we gegevens bewaren', alineas: ['Marlé Nail Studio bewaart je persoonsgegevens niet langer dan strikt nodig is om de doelen te realiseren waarvoor je gegevens worden verzameld. Persoonsgegevens en afspraakgeschiedenis bewaren wij tot 2 jaar na je laatste bezoek. Na deze periode worden de gegevens definitief verwijderd, tenzij er een wettelijke (fiscale) verplichting is om bepaalde gegevens langer te bewaren.'] },
+        { titel: 'Delen met derden', alineas: ['Marlé Nail Studio verkoopt jouw gegevens niet aan derden en verstrekt deze uitsluitend indien dit nodig is voor de uitvoering van onze overeenkomst met jou of om te voldoen aan een wettelijke verplichting.', 'Voor het beheren van onze agenda en klantgegevens maken wij gebruik van Salonized, onze salonsoftware waarin afspraken en klantgegevens veilig worden opgeslagen. Met Salonized hebben wij een verwerkersovereenkomst gesloten om te zorgen voor eenzelfde niveau van beveiliging en vertrouwelijkheid van jouw gegevens.'] },
+        { titel: 'Gegevens inzien, aanpassen of verwijderen', alineas: ['Je hebt het recht om je persoonsgegevens in te zien, te corrigeren of te verwijderen. Daarnaast heb je het recht om je eventuele toestemming voor de gegevensverwerking in te trekken of bezwaar te maken tegen de verwerking van jouw persoonsgegevens door Marlé Nail Studio.', 'Wil je gebruikmaken van je rechten, of heb je vragen over de privacybescherming? Stuur dan een e-mail naar nailstudio.marle@gmail.com. Om er zeker van te zijn dat het verzoek door jou is gedaan, kunnen we je vragen om jezelf te identificeren.'] },
+        { titel: 'Hoe wij gegevens beveiligen', alineas: ['Marlé Nail Studio neemt de bescherming van jouw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. Als jij het idee hebt dat jouw gegevens toch niet goed beveiligd zijn of er aanwijzingen zijn van misbruik, neem dan direct contact met ons op via nailstudio.marle@gmail.com.'] },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

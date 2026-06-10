@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ background:#F8F4EE; font-family:'Jost',-apple-system,sans-serif; -webkit-font-smoothing:antialiased; }
+    ::selection{ background:#C8AEA1; color:#F8F4EE; }
+    @keyframes riseUp{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:translateY(0); } }
+  </style>
+</helmet>
+
+<div style="background:#F8F4EE; color:#6E5B4B; overflow-x:hidden; min-height:100vh;">
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header style="display:flex; align-items:center; justify-content:space-between; padding:34px clamp(28px,5vw,64px); border-bottom:1px solid rgba(110,91,75,0.14);">
+    <a href="index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#9C8975; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; transition:color .3s ease;" style-hover="color:#6E5B4B;">&larr;&nbsp;&nbsp;HOME</a>
+    <a href="index.html" style="text-decoration:none; text-align:center;">
+      <div style="font-size:20px; font-weight:200; letter-spacing:0.42em; text-indent:0.42em; color:#6E5B4B;">MARL&Eacute;</div>
+    </a>
+    <div style="font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; color:#9C8975; min-width:60px; text-align:right;">WERK</div>
+  </header>
+
+  <!-- ===================== TITEL ===================== -->
+  <section style="text-align:center; padding:clamp(70px,11vh,128px) 28px clamp(48px,7vh,80px); animation:riseUp 1s ease both;">
+    <div style="font-size:11px; font-weight:400; letter-spacing:0.5em; color:#A8957F; text-indent:0.5em; margin-bottom:24px;">GALERIJ</div>
+    <h1 style="font-size:clamp(40px,6.5vw,82px); font-weight:200; letter-spacing:0.18em; color:#6E5B4B; text-indent:0.18em; line-height:1; text-shadow:0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 rgba(110,91,75,0.1);">RECENT&nbsp;WERK</h1>
+    <p style="font-size:clamp(16px,2vw,19px); font-weight:300; letter-spacing:0.03em; line-height:1.7; color:#8A7765; max-width:460px; margin:30px auto 0; text-wrap:balance;">{{ introZin }}</p>
+  </section>
+
+  <!-- ===================== FEATURE FOTO ===================== -->
+  <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,40px);">
+    <div data-reveal>
+      <image-slot id="werk-feature" style="width:100%; height:auto; aspect-ratio:16/7; display:block;" shape="rect" fit="cover" placeholder="Sleep hier een uitgelichte foto"></image-slot>
+    </div>
+  </section>
+
+  <!-- ===================== GRID ===================== -->
+  <section style="max-width:1240px; margin:0 auto; padding:clamp(16px,2.5vw,24px) clamp(20px,4vw,40px) clamp(80px,12vh,140px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(248px, 1fr)); gap:clamp(14px,2vw,22px);">
+      <sc-for list="{{ slots }}" as="slot" hint-placeholder-count="9">
+        <div data-reveal data-reveal-delay="{{ slot.delayMs }}">
+          <div style="transition:transform .5s cubic-bezier(.22,.61,.36,1);" style-hover="transform:translateY(-7px);">
+            <image-slot id="{{ slot.id }}" style="width:100%; height:auto; aspect-ratio:4/5; display:block;" shape="rect" fit="cover" placeholder="{{ slot.label }}"></image-slot>
+            <div style="margin-top:13px; text-align:center; font-size:10px; font-weight:400; letter-spacing:0.34em; text-indent:0.34em; color:#A8957F; text-transform:uppercase;">{{ slot.type }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#6E5B4B; color:#EFE7DD; padding:clamp(60px,9vh,96px) 0 44px;">
+    <div style="max-width:1120px; margin:0 auto; padding:0 40px;">
+      <div data-reveal style="text-align:center; margin-bottom:clamp(44px,6vh,68px);">
+        <p style="font-size:clamp(20px,2.6vw,30px); font-weight:200; letter-spacing:0.03em; color:#F4EDE4; margin-bottom:28px;">{{ ctaZin }}</p>
+        <a href="{{ afspraakLink }}" target="_blank" rel="noopener" style="display:inline-block; text-decoration:none; background:#EFE7DD; color:#6E5B4B; padding:16px 36px; font-size:12px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; transition:opacity .3s ease, transform .3s ease;" style-hover="opacity:0.82; transform:translateY(-2px);">MAAK EEN AFSPRAAK</a>
+      </div>
+      <div style="height:1px; background:rgba(239,231,221,0.18); margin-bottom:40px;"></div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:32px 36px; text-align:center;">
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">INSTAGRAM</div>
+          <a href="{{ instaLink }}" style="text-decoration:none; color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.08em;">{{ instaHandle }}</a>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">E-MAIL</div>
+          <a href="mailto:{{ email }}" style="text-decoration:none; color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.04em;">{{ email }}</a>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">TELEFOON</div>
+          <a href="{{ telLink }}" style="text-decoration:none; color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.08em;">{{ telefoon }}</a>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:400; letter-spacing:0.42em; text-indent:0.42em; color:#C9B8A7; margin-bottom:12px;">ADRES</div>
+          <div style="color:#EFE7DD; font-size:15px; font-weight:300; letter-spacing:0.08em; line-height:1.7; white-space:pre-line;">{{ adres }}</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:clamp(40px,6vh,64px);">
+        <a href="voorwaarden.html#voorwaarden" style="text-decoration:none; color:#C9B8A7; font-size:10px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; transition:color .3s ease;" style-hover="color:#F4EDE4;">ALGEMENE VOORWAARDEN</a>
+        <a href="voorwaarden.html#privacy" style="text-decoration:none; color:#C9B8A7; font-size:10px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; transition:color .3s ease;" style-hover="color:#F4EDE4;">PRIVACYVERKLARING</a>
+      </div>
+      <div style="text-align:center; margin-top:clamp(32px,4.5vh,48px);">
+        <div style="font-size:20px; font-weight:200; letter-spacing:0.42em; text-indent:0.42em; color:#F4EDE4;">MARL&Eacute;</div>
+        <div style="font-size:10px; font-weight:300; letter-spacing:0.4em; text-indent:0.4em; color:#B5A491; margin-top:11px;">&copy; 2026 &nbsp;&middot;&nbsp; NAIL STUDIO</div>
+        <div style="font-size:10px; font-weight:300; letter-spacing:0.3em; text-indent:0.3em; color:#9C8973; margin-top:9px;">KVK 00000000 &nbsp;&middot;&nbsp; BTW NL0000.00.000.B00</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;introZin&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Een greep uit recent werk — natuurlijke sets, zachte tinten en verfijnde finish.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaZin&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Iets moois gezien? Plan je afspraak.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;aantalFotos&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:9,&quot;min&quot;:3,&quot;max&quot;:24,&quot;tsType&quot;:&quot;number&quot;},&quot;afspraakLink&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;tel:+31600000000&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const run = () => {
+      const els = Array.from(document.querySelectorAll('[data-reveal]'));
+      if (!els.length) return;
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(26px)';
+        el.style.transition = 'opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1)';
+        el.style.willChange = 'opacity, transform';
+      });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const el = e.target;
+            const d = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, d);
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(el => io.observe(el));
+    };
+    requestAnimationFrame(() => requestAnimationFrame(run));
+  }
+  renderVals() {
+    const p = this.props;
+    const aantal = p.aantalFotos ?? 9;
+    const slots = Array.from({ length: aantal }, (_, i) => ({
+      id: 'werk-' + (i + 1),
+      label: 'Foto ' + (i + 1),
+      type: (i % 3 === 2) ? 'BIAB / GEL · NAIL ART' : 'BIAB / GEL',
+      delayMs: (i % 3) * 110,
+    }));
+    return {
+      introZin: p.introZin ?? 'Een greep uit recent werk — natuurlijke sets, zachte tinten en verfijnde finish.',
+      ctaZin: p.ctaZin ?? 'Iets moois gezien? Plan je afspraak.',
+      afspraakLink: p.afspraakLink ?? 'https://marle-nail-studio.salonized.com/',
+      instaHandle: '@marlenailstudio',
+      instaLink: 'https://instagram.com/marlenailstudio',
+      email: 'nailstudio.marle@gmail.com',
+      telefoon: '06 18 25 99 18',
+      telLink: 'tel:+31618259918',
+      adres: 'Helsdingse Achterweg 12\n4133 NC  Vianen',
+      slots,
+    };
+  }
+}
+</script>
+</body>
+</html>
