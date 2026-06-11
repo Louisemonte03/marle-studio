@@ -155,17 +155,9 @@
     max-width: 620px; margin: 0 auto; padding: 0 40px;
     position: relative;
   }
-  .v-lijn {
-    position: absolute; left: 46px; top: 14px; bottom: 14px;
-    width: 1px; background: rgba(110,91,75,.3);
-  }
-  .tar-groep { position: relative; padding-left: 84px; margin-bottom: 54px; }
-  .tar-node {
-    position: absolute; left: 40px; top: 7px;
-    width: 13px; height: 13px;
-    border: 1px solid rgba(110,91,75,.55);
-    border-radius: 50%; background: #F8F4EE;
-  }
+  .v-lijn { display: none; }
+  .tar-groep { position: relative; padding-left: 0; margin-bottom: 54px; }
+  .tar-node { display: none; }
   .tar-groep h3 {
     font-size: clamp(28px, 3.6vw, 40px); font-weight: 200;
     letter-spacing: .16em; color: #6E5B4B; text-indent: .16em;
@@ -313,8 +305,8 @@
     <div id="nav-links">
       <a href="#tarieven" class="nav-a">TARIEVEN</a>
       <a href="galerij.html" class="nav-a">GALERIJ</a>
-      <a href="voorwaarden.html#voorwaarden" class="nav-a">VOORWAARDEN</a>
-      <a href="voorwaarden.html#privacy" class="nav-a">PRIVACY</a>
+      <a href="voorwaarden.html" class="nav-a">VOORWAARDEN</a>
+      <a href="#contact" class="nav-a" onclick="event.preventDefault();scrollToSection('contact')">AFSPRAAK MAKEN</a>
     </div>
   </nav>
 
@@ -530,8 +522,8 @@
   </button>
   <a href="#tarieven" id="menu-tarieven">TARIEVEN</a>
   <a href="galerij.html">GALERIJ</a>
-  <a href="voorwaarden.html#voorwaarden">VOORWAARDEN</a>
-  <a href="voorwaarden.html#privacy">PRIVACY</a>
+  <a href="voorwaarden.html">VOORWAARDEN</a>
+  <a href="#contact" id="menu-afspraak">AFSPRAAK MAKEN</a>
 </div>
 
 <script>
@@ -553,6 +545,12 @@
     e.preventDefault();
     mobileMenu.style.display = 'none';
     setTimeout(function () { scrollToSection('tarieven'); }, 150);
+  });
+  var menuAfspraak = document.getElementById('menu-afspraak');
+  menuAfspraak.addEventListener('click', function (e) {
+    e.preventDefault();
+    mobileMenu.style.display = 'none';
+    setTimeout(function () { scrollToSection('contact'); }, 150);
   });
 
   // ── Scroll reveal ──
