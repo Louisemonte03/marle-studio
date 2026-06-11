@@ -25,13 +25,18 @@
 
   <!-- ===================== HERO ===================== -->
   <section style="position:relative; height:100vh; min-height:720px; width:100%; overflow:hidden;">
-    <image-slot id="marle-hero" style="position:absolute; inset:0; width:100%; height:100%;" shape="rect" fit="cover" placeholder="Sleep hier je hero-foto (close-up nagels, nude tinten)"></image-slot>
+    <image-slot id="marle-hero" style="position:absolute; inset:0; width:100%; height:100%;" shape="rect" fit="cover" placeholder=""></image-slot>
 
     <!-- overlay scrim: subtiele donkere top voor wordmark + warme cream onder voor tekst -->
     <div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(to bottom, rgba(45,33,25,0.24) 0%, rgba(45,33,25,0.04) 18%, transparent 42%, rgba(248,244,238,0.55) 66%, rgba(248,244,238,0.96) 92%, #F8F4EE 100%);"></div>
 
-    <!-- galerij-link -->
-    <a href="galerij.html" style="position:absolute; top:52px; right:clamp(24px,5vw,56px); z-index:4; text-decoration:none; color:#F2EBE3; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; text-shadow:0 1px 14px rgba(55,40,30,0.55); transition:opacity .3s ease; animation:riseUp 1.1s ease both;" style-hover="opacity:0.7;">GALERIJ</a>
+    <!-- header nav -->
+    <nav style="position:absolute; top:0; left:0; right:0; z-index:4; display:flex; align-items:center; justify-content:flex-end; gap:clamp(18px,3vw,40px); padding:48px clamp(24px,5vw,56px) 0; animation:riseUp 1.1s ease both;">
+      <a href="#tarieven" onClick="event.preventDefault(); document.getElementById('tarieven').scrollIntoView({behavior:'smooth'});" style="text-decoration:none; color:#F2EBE3; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; text-shadow:0 1px 14px rgba(55,40,30,0.55); transition:opacity .3s ease;" style-hover="opacity:0.7;">TARIEVEN</a>
+      <a href="galerij.html" style="text-decoration:none; color:#F2EBE3; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; text-shadow:0 1px 14px rgba(55,40,30,0.55); transition:opacity .3s ease;" style-hover="opacity:0.7;">GALERIJ</a>
+      <a href="voorwaarden.html#voorwaarden" style="text-decoration:none; color:#F2EBE3; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; text-shadow:0 1px 14px rgba(55,40,30,0.55); transition:opacity .3s ease;" style-hover="opacity:0.7;">VOORWAARDEN</a>
+      <a href="voorwaarden.html#privacy" style="text-decoration:none; color:#F2EBE3; font-size:11px; font-weight:400; letter-spacing:0.26em; text-indent:0.26em; text-shadow:0 1px 14px rgba(55,40,30,0.55); transition:opacity .3s ease;" style-hover="opacity:0.7;">PRIVACY</a>
+    </nav>
 
     <!-- wordmark bovenin -->
     <div style="position:absolute; top:48px; left:0; right:0; text-align:center; z-index:3; animation:riseUp 1.1s ease both;">
@@ -52,7 +57,7 @@
   <!-- ===================== WIE IS MARLÉ ===================== -->
   <section style="background:#F2EDE7; padding:clamp(80px,12vh,150px) 0;">
     <div data-reveal style="max-width:1120px; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(48px,7vw,110px); align-items:center;">
-      <image-slot id="marle-portret" style="width:100%; height:auto; aspect-ratio:4/5;" shape="rect" fit="cover" src="marle-portret.jpeg" placeholder="Sleep hier je portretfoto"></image-slot>
+      <image-slot id="marle-portret" style="width:100%; height:auto; aspect-ratio:4/5;" shape="rect" fit="cover" src="marle-portret.jpeg" placeholder=""></image-slot>
       <div>
         <div style="font-size:11px; font-weight:400; letter-spacing:0.5em; color:#A8957F; text-indent:0.5em; margin-bottom:26px;">WIE&nbsp;IS&nbsp;MARL&Eacute;</div>
         <h2 style="font-size:clamp(28px,3.4vw,44px); font-weight:200; letter-spacing:0.02em; line-height:1.25; color:#5E4C3D; margin-bottom:30px; text-wrap:balance;">{{ marleHeading }}</h2>

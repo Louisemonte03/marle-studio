@@ -192,9 +192,9 @@
     '.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;' +
     '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' +
     '  cursor:pointer;user-select:none}' +
-    '.empty svg{opacity:.45}' +
-    '.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}' +
-    '.empty .sub{font-size:11px}' +
+    '.empty svg{display:none}' +
+    '.empty .cap{max-width:90%;font-weight:300;letter-spacing:0.3em;font-size:11px;color:rgba(0,0,0,.35);text-indent:0.3em}' +
+    '.empty .sub{display:none}' +
     '.empty .sub u{text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}' +
     '.empty:hover .sub u{color:rgba(0,0,0,.75);text-decoration-color:currentColor}' +
     ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' +
@@ -614,7 +614,8 @@
           y: stored && Number.isFinite(stored.y) ? stored.y : 0,
         };
       }
-      this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
+      const ph = this.getAttribute('placeholder');
+      this._cap.textContent = (ph !== null && ph !== '') ? ph : 'FOTO';
       // Toggle via style.display — the [hidden] attribute alone loses to
       // the display:flex / display:block rules in the stylesheet above.
       if (url) {
