@@ -914,14 +914,6 @@
           scrollToSection("tarieven");
         }, 150);
       });
-      var menuAfspraak = document.getElementById("menu-afspraak");
-      menuAfspraak.addEventListener("click", function (e) {
-        e.preventDefault();
-        mobileMenu.style.display = "none";
-        setTimeout(function () {
-          scrollToSection("contact");
-        }, 150);
-      });
 
       // ── Scroll reveal ──
       var revealEls = Array.from(document.querySelectorAll("[data-reveal]"));
