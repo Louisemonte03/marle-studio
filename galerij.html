@@ -52,7 +52,7 @@
       <sc-for list="{{ slots }}" as="slot" hint-placeholder-count="9">
         <div data-reveal data-reveal-delay="{{ slot.delayMs }}">
           <div style="transition:transform .5s cubic-bezier(.22,.61,.36,1);" style-hover="transform:translateY(-7px);">
-            <image-slot id="{{ slot.id }}" style="width:100%; height:auto; aspect-ratio:4/5; display:block;" shape="rect" fit="cover" placeholder="{{ slot.label }}"></image-slot>
+            <image-slot id="{{ slot.id }}" style="width:100%; height:auto; aspect-ratio:4/5; display:block;" shape="rect" fit="cover" placeholder="{{ slot.label }}" src="{{ slot.src }}"></image-slot>
             <div style="margin-top:13px; text-align:center; font-size:10px; font-weight:400; letter-spacing:0.34em; text-indent:0.34em; color:#A8957F; text-transform:uppercase;">{{ slot.type }}</div>
           </div>
         </div>
@@ -129,11 +129,17 @@ class Component extends DCLogic {
   renderVals() {
     const p = this.props;
     const aantal = p.aantalFotos ?? 9;
+    const nagelImages = [
+      'uploads/nagels1.jpeg','uploads/nagels2.jpeg','uploads/nagels3.jpeg',
+      'uploads/nagels4.jpeg','uploads/nagels5.jpeg','uploads/nagels6.jpeg',
+      'uploads/nagels7.jpeg','uploads/nagels8.jpeg','uploads/nagels9.jpeg',
+    ];
     const slots = Array.from({ length: aantal }, (_, i) => ({
       id: 'werk-' + (i + 1),
       label: 'Foto ' + (i + 1),
       type: (i % 3 === 2) ? 'BIAB / GEL · NAIL ART' : 'BIAB / GEL',
       delayMs: (i % 3) * 110,
+      src: nagelImages[i] || '',
     }));
     return {
       introZin: p.introZin ?? 'Een greep uit recent werk — natuurlijke sets, zachte tinten en verfijnde finish.',
