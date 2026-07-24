@@ -265,49 +265,6 @@
         margin-top: 16px;
       }
 
-      /* actie banner */
-      .actie-wrap {
-        max-width: 520px;
-        margin: 0 auto clamp(56px, 7vh, 84px);
-        padding: 0 40px;
-      }
-      .actie-box {
-        border: 1px dotted rgba(176, 140, 140, 0.6);
-        padding: 30px 34px;
-        text-align: center;
-        background: rgba(200, 174, 161, 0.1);
-      }
-      .actie-label {
-        font-size: 10px;
-        font-weight: 400;
-        letter-spacing: 0.5em;
-        text-indent: 0.5em;
-        color: #b58e84;
-        margin-bottom: 14px;
-      }
-      .actie-inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .actie-pct {
-        font-size: clamp(34px, 5vw, 52px);
-        font-weight: 200;
-        letter-spacing: 0.02em;
-        color: #b58e84;
-      }
-      .actie-tekst {
-        font-size: 15px;
-        font-weight: 300;
-        letter-spacing: 0.04em;
-        line-height: 1.6;
-        color: #8a7765;
-        max-width: 240px;
-        text-align: left;
-      }
-
       /* lijst */
       .tar-wrap {
         max-width: 620px;
@@ -363,20 +320,6 @@
         align-items: baseline;
         gap: 9px;
         white-space: nowrap;
-      }
-      .prijs-oud {
-        font-size: 13px;
-        font-weight: 300;
-        letter-spacing: 0.04em;
-        color: #b6a899;
-        text-decoration: line-through;
-        text-decoration-color: rgba(150, 120, 108, 0.55);
-      }
-      .prijs-nu-actie {
-        font-size: 14.5px;
-        font-weight: 400;
-        letter-spacing: 0.06em;
-        color: #b58e84;
       }
       .prijs-nu {
         font-size: 14.5px;
@@ -677,19 +620,6 @@
         <div class="sub">MARL&Eacute;&nbsp;&nbsp;NAIL&nbsp;&nbsp;STUDIO</div>
       </div>
 
-      <!-- Openingsactie — verwijder dit blok als de actie voorbij is -->
-      <div class="actie-wrap" data-reveal>
-        <div class="actie-box">
-          <div class="actie-label">OPENINGSACTIE</div>
-          <div class="actie-inner">
-            <span class="actie-pct">&minus;20%</span>
-            <span class="actie-tekst"
-              >korting op alle behandelingen, de eerste 3 maanden.</span
-            >
-          </div>
-        </div>
-      </div>
-
       <div class="tar-wrap">
         <div class="v-lijn"></div>
 
@@ -701,32 +631,28 @@
             <span class="tarief-naam">Nieuwe set</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€44,95</span>
-              <span class="prijs-nu-actie">€35,96</span>
+              <span class="prijs-nu">€44,95</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Nabehandeling</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€49,95</span>
-              <span class="prijs-nu-actie">€39,96</span>
+              <span class="prijs-nu">€49,95</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Incl. gellak</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">+€2,50</span>
-              <span class="prijs-nu-actie">+€2,00</span>
+              <span class="prijs-nu">+€2,50</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Verwijderen</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€19,95</span>
-              <span class="prijs-nu-actie">€15,96</span>
+              <span class="prijs-nu">€19,95</span>
             </span>
           </div>
         </div>
@@ -739,40 +665,35 @@
             <span class="tarief-naam">Nieuwe set</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€34,95</span>
-              <span class="prijs-nu-actie">€27,96</span>
+              <span class="prijs-nu">€34,95</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Gel-X verlenging incl. gellak</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€42,50</span>
-              <span class="prijs-nu-actie">€34,00</span>
+              <span class="prijs-nu">€57,50</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Opvullen gel-X</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€34,95</span>
-              <span class="prijs-nu-actie">€27,96</span>
+              <span class="prijs-nu">€52,50</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Opvullen gellak</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€29,95</span>
-              <span class="prijs-nu-actie">€23,96</span>
+              <span class="prijs-nu">€29,95</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Verwijderen</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€19,95</span>
-              <span class="prijs-nu-actie">€15,96</span>
+              <span class="prijs-nu">€19,95</span>
             </span>
           </div>
         </div>
@@ -785,16 +706,14 @@
             <span class="tarief-naam">Small</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€4,95</span>
-              <span class="prijs-nu-actie">€3,96</span>
+              <span class="prijs-nu">€4,95</span>
             </span>
           </div>
           <div class="tarief-rij">
             <span class="tarief-naam">Medium</span>
             <span class="tarief-lijn"></span>
             <span class="tarief-prijs">
-              <span class="prijs-oud">€7,50</span>
-              <span class="prijs-nu-actie">€6,00</span>
+              <span class="prijs-nu">€7,50</span>
             </span>
           </div>
         </div>
